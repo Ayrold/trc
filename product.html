@@ -1,186 +1,303 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRC Product Shop</title>
 
-.price {
-  color: grey;
-  font-size: 22px;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: back.jpg;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
 
-.card button:hover {
-  opacity: 0.7;
-}
-.cont{
-display:flex;
-flex-direction:row;
+    .title {
+      text-align: center;
+      padding: 20px;
+      background-color: #d71920;
+      color: white;
+    }
 
-}
-.title{
-text-align:center;
-}
-</style>
+    .title h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    /* Four products per row */
+    .cont {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 25px;
+      padding: 25px;
+      max-width: 1500px;
+      margin: auto;
+    }
+
+    /* Product card */
+    .card {
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      padding: 15px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card img {
+      width: 100%;
+      max-width: 200px;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .card h2 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .price {
+      color: #d71920;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .card button {
+      border: none;
+      outline: none;
+      padding: 12px;
+      color: white;
+      background-color: #d71920;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .card button:hover {
+      background-color: #a91218;
+    }
+
+    /* Tablet: two products per row */
+    @media (max-width: 900px) {
+      .cont {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+        padding: 15px;
+      }
+    }
+
+    /* Mobile: one product per row */
+    @media (max-width: 500px) {
+      .cont {
+        grid-template-columns: 1fr;
+        padding: 15px;
+      }
+
+      .title h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="title"><h1>Product</h1></div>
-<div class="cont">
-<div class="card">
-  <img src="trc mags.jpg"alt="trc mags"style="width:50%">
-  <h1>TRC MAGS</h1>
-  <p class="price">8500 price</p>
-  <p>This trc mags is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="flatseat.jpg"alt="flat seat"style="width:50%">
-  <h1>TRC FLATSEAT</h1>
-  <p class="price">1500 price</p>
-  <p>This trs flatseat is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="swingarm rfi.jpg"alt="trc swingarm"style="width:50%">
-  <h1>TRC SWINGARM</h1>
-  <p class="price">9000 price</p>
-  <p>This trc swing-arm is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="Trc-crankcase.jpg"alt="crankcase"style="width:50%">
-  <h1>TRC crankcase</h1>
-  <p class="price">150,000 price </p>
-  <p>This trc crank-case is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-<div class="card">
-  <img src="brake line hose.jpg"alt="trc mags"style="width:50%">
-  <h1>TRC Brake line hose</h1>
-  <p class="price">1,000 price</p>
-  <p>This trc brake line hose is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="fuel tank cover trc.jpg"alt="flat seat"style="width:50%">
-  <h1>TRC fuel tank cover</h1>
-  <p class="price">500 price</p>
-  <p>This trc fuel tank cover is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="side stand trc.jpg"alt="trc swingarm"style="width:50%">
-  <h1>TRC side stand</h1>
-  <p class="price">1,200 price</p>
-  <p>This trc side stand is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="trc cnc swingarm adv 160.jpg"alt="crankcase"style="width:50%">
-  <h1>TRC cnc swingarm avd 160</h1>
-  <p class="price">150,000 price </p>
-  <p>This trc swingarm adv 160 is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-<div class="card">
-  <img src="trc front suspension.jpg"alt="trc mags"style="width:50%">
-  <h1>TRC front suspension</h1>
-  <p class="price">3,000 price</p>
-  <p>This trc front suspension is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="trc halfshifter.jpg"alt="flat seat"style="width:50%">
-  <h1>TRC halfshifter</h1>
-  <p class="price">2,000 price</p>
-  <p>This trc halfshifter is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="trc handle grip.jpg"alt="trc swingarm"style="width:50%">
-  <h1>TRC handle grip</h1>
-  <p class="price">300 price</p>
-  <p>This handle grip is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="trc low rise handle bar.jpg"alt="crankcase"style="width:50%">
-  <h1>TRC low rise handle bar</h1>
-  <p class="price">450 price </p>
-  <p>This trc low rise handle bar is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-<div class="card">
-  <img src="trc power pipe.jpg"alt="trc mags"style="width:50%">
-  <h1>TRC power pipe</h1>
-  <p class="price">2,500 price</p>
-  <p>This trc power pipe is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="trc side mirror.jpg"alt="flat seat"style="width:50%">
-  <h1>TRC side mirror</h1>
-  <p class="price">200 price</p>
-  <p>This trc side mirror is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="trc t post rfi.jpg"alt="trc swingarm"style="width:50%">
-  <h1>TRC t post rfi</h1>
-  <p class="price">3,500 price</p>
-  <p>This t post rfi is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="trc water pump.jpg"alt="crankcase"style="width:50%">
-  <h1>TRC water pump</h1>
-  <p class="price">800 price </p>
-  <p>This trc water pump is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-<div class="card">
-  <img src="trc oil bolt.png"alt="trc mags"style="width:50%">
-  <h1>TRC oil bolt</h1>
-  <p class="price">250 price</p>
-  <p>This trc oil bolt is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="trc oil filter cover.png"alt="flat seat"style="width:50%">
-  <h1>TRC oil filter cover</h1>
-  <p class="price">850 price</p>
-  <p>This trc oil filter cover is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="trc rfi brake lever.png"alt="trc swingarm"style="width:50%">
-  <h1>TRC rfi brake lever</h1>
-  <p class="price">1,500 price</p>
-  <p>This trc rfi brake lever is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-<div class="card">
-  <img src="trc rfi fuild cover.png"alt="crankcase"style="width:50%">
-  <h1>TRC fluid cover</h1>
-  <p class="price">350 price </p>
-  <p>This trc fluid cover is one of my product in my shop.</p>
-  <p><button>Add to Cart</button></p>
-</div>
-</div>
+  <div class="title">
+    <h1>TRC PRODUCTS</h1>
+  </div>
+
+  <div class="cont">
+
+    <div class="card">
+      <img src="trc mags.jpg" alt="TRC Mags">
+      <h2>TRC MAGS</h2>
+      <p class="price">8,500</p>
+      <p class="description">These TRC mags are available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC MAGS', 8500)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="flatseat.jpg" alt="TRC Flatseat">
+      <h2>TRC FLATSEAT</h2>
+      <p class="price">1,500</p>
+      <p class="description">This TRC flatseat is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC FLATSEAT', 1500)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="swingarm rfi.jpg" alt="TRC Swingarm">
+      <h2>TRC SWINGARM</h2>
+      <p class="price">9,000</p>
+      <p class="description">This TRC swingarm is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC SWINGARM', 9000)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="Trc-crankcase.jpg" alt="TRC Crankcase">
+      <h2>TRC CRANKCASE</h2>
+      <p class="price">150,000</p>
+      <p class="description">This TRC crankcase is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC CRANKCASE', 150000)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc brake master.jpg" alt="TRC Brake Master">
+      <h2>TRC BRAKE MASTER</h2>
+      <p class="price">3,500</p>
+      <p class="description">TRC brake master component available in our shop.</p>
+      <button type="button" onclick="addToCart('TRC BRAKE MASTER', 3500)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="fuel tank cover trc.jpg" alt="TRC Fuel Tank Cover">
+      <h2>TRC FUEL TANK COVER</h2>
+      <p class="price">500</p>
+      <p class="description">This TRC fuel tank cover is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC FUEL TANK COVER', 500)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="side stand trc.jpg" alt="TRC Side Stand">
+      <h2>TRC SIDE STAND</h2>
+      <p class="price">700</p>
+      <p class="description">This TRC side stand is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC SIDE STAND', 1200)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc cnc swingarm adv 160.jpg" alt="TRC CNC Swingarm ADV 160">
+      <h2>TRC CNC SWINGARM ADV 160</h2>
+      <p class="price">3,000</p>
+      <p class="description">TRC CNC swingarm for ADV 160 motorcycles.</p>
+      <button type="button" onclick="addToCart('TRC CNC SWINGARM ADV 160', 150000)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc front suspension.jpg" alt="TRC Front Suspension">
+      <h2>TRC FRONT SUSPENSION</h2>
+      <p class="price">3,000</p>
+      <p class="description">This TRC front suspension is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC FRONT SUSPENSION', 3000)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc halfshifter.jpg" alt="TRC Halfshifter">
+      <h2>TRC HALF SHIFTER</h2>
+      <p class="price">2,000</p>
+      <p class="description">This TRC halfshifter is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC HALF SHIFTER', 2000)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc handle grip.jpg" alt="TRC Handle Grip">
+      <h2>TRC HANDLE GRIP</h2>
+      <p class="price">300</p>
+      <p class="description">This TRC handle grip is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC HANDLE GRIP', 300)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc low rise handle bar.jpg" alt="TRC Low Rise Handle Bar">
+      <h2>TRC LOW RISE HANDLE BAR</h2>
+      <p class="price">450</p>
+      <p class="description">This TRC low rise handle bar is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC LOW RISE HANDLE BAR', 450)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc power pipe.jpg" alt="TRC Power Pipe">
+      <h2>TRC POWER PIPE</h2>
+      <p class="price">2,500</p>
+      <p class="description">This TRC power pipe is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC POWER PIPE', 2500)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc side mirror.png" alt="TRC Side Mirror">
+      <h2>TRC SIDE MIRROR</h2>
+      <p class="price">200</p>
+      <p class="description">This TRC side mirror is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC SIDE MIRROR', 200)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc t post rfi.jpg" alt="TRC T Post RFI">
+      <h2>TRC T POST RFI</h2>
+      <p class="price">3,500</p>
+      <p class="description">This TRC T post RFI is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC T POST RFI', 3500)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc water pump.jpg" alt="TRC Water Pump">
+      <h2>TRC WATER PUMP</h2>
+      <p class="price">800</p>
+      <p class="description">This TRC water pump is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC WATER PUMP', 800)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc oil bolt.png" alt="TRC Oil Bolt">
+      <h2>TRC OIL BOLT</h2>
+      <p class="price">250</p>
+      <p class="description">This TRC oil bolt is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC OIL BOLT', 250)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc oil filter cover.png" alt="TRC Oil Filter Cover">
+      <h2>TRC OIL FILTER COVER</h2>
+      <p class="price">850</p>
+      <p class="description">This TRC oil filter cover is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC OIL FILTER COVER', 850)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc rfi brake lever.png" alt="TRC RFI Brake Lever">
+      <h2>TRC RFI BRAKE LEVER</h2>
+      <p class="price">1,200</p>
+      <p class="description">This TRC RFI brake lever is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC RFI BRAKE LEVER', 1500)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="trc rfi fuild cover.png" alt="TRC Fluid Cover">
+      <h2>TRC FLUID COVER</h2>
+      <p class="price">350</p>
+      <p class="description">This TRC fluid cover is available in my shop.</p>
+      <button type="button" onclick="addToCart('TRC FLUID COVER', 350)">Add to Cart</button>
+	  <a href="home page.html">Back to Home</a>
+    </div>
+
+  </div>
+
+  <script>
+    function addToCart(productName, price) {
+      alert(
+        productName + " added to cart!\nPrice: ?" +
+        price.toLocaleString("en-PH")
+      );
+    }
+  </script>
 
 </body>
 </html>
+
