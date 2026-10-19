@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +9,19 @@
     <title>TRC Shop Login</title>
 
     <style>
+        /* RESET */
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
 
+        /* BODY / BACKGROUND */
         body {
-            margin: 0;
             min-height: 100vh;
             min-height: 100dvh;
+            width: 100%;
             padding: 20px;
 
             display: flex;
@@ -28,50 +33,77 @@
             background-position: center;
             background-repeat: no-repeat;
             background-color: #333;
+
+            overflow-x: hidden;
         }
 
-        /* Login Container */
+        /* OPTIONAL DARK OVERLAY FOR BETTER CONTRAST */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.25);
+            pointer-events: none;
+        }
+
+        /* LOGIN CARD */
         .login-box {
+            position: relative;
+            z-index: 1;
+
             width: 100%;
             max-width: 380px;
-            min-height: 350px;
-            padding: 30px;
+            padding: 32px;
 
             text-align: center;
-            background: white;
+            background: rgba(255, 255, 255, 0.96);
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
-        /* TRC Logo */
+        /* LOGO */
         .login-logo {
             display: block;
+
             width: 80px;
             height: 80px;
             max-width: 100%;
+
             object-fit: contain;
             margin: 0 auto 15px;
         }
 
-        /* Heading */
+        /* TITLE */
         h1 {
-            margin: 0 0 25px;
+            margin-bottom: 25px;
             font-size: 28px;
             color: #222;
         }
 
-        /* Username and Password */
+        /* FORM */
+        form {
+            width: 100%;
+        }
+
+        /* INPUT FIELDS */
         input {
             display: block;
             width: 100%;
-            min-height: 46px;
-            padding: 12px;
+            min-height: 48px;
+            padding: 12px 14px;
             margin: 15px 0;
 
             border: 1px solid #ccc;
             border-radius: 6px;
+
+            background: #fff;
+            color: #222;
             font-size: 16px;
+
             outline: none;
+            transition: border-color 0.2s,
+                        box-shadow 0.2s;
         }
 
         input::placeholder {
@@ -81,30 +113,38 @@
 
         input:focus {
             border-color: #d71920;
-            box-shadow: 0 0 4px rgba(215, 25, 32, 0.3);
+            box-shadow: 0 0 5px rgba(215, 25, 32, 0.3);
         }
 
-        /* Login Button */
+        /* LOGIN BUTTON */
         button {
             display: block;
             width: 100%;
-            min-height: 46px;
-            padding: 12px;
+            min-height: 48px;
+            padding: 13px;
             margin-top: 20px;
 
             background: #d71920;
             color: white;
+
             border: none;
             border-radius: 6px;
 
-            cursor: pointer;
             font-size: 16px;
             font-weight: bold;
-            transition: background 0.2s;
+            cursor: pointer;
+
+            transition: background 0.2s,
+                        transform 0.2s;
         }
 
         button:hover {
             background: #a91218;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
         }
 
         button:focus-visible {
@@ -112,11 +152,15 @@
             outline-offset: 3px;
         }
 
-        /* Tablets and Small Laptops */
+        /* TABLETS */
         @media screen and (max-width: 768px) {
+            body {
+                padding: 24px;
+            }
+
             .login-box {
                 max-width: 360px;
-                padding: 28px;
+                padding: 30px 26px;
             }
 
             h1 {
@@ -124,7 +168,7 @@
             }
         }
 
-        /* Cellphones */
+        /* MOBILE PHONES */
         @media screen and (max-width: 480px) {
             body {
                 padding: 16px;
@@ -134,14 +178,14 @@
             .login-box {
                 width: 100%;
                 max-width: 360px;
-                min-height: auto;
-                padding: 25px 20px;
+                padding: 26px 20px;
                 border-radius: 10px;
             }
 
             .login-logo {
                 width: 70px;
                 height: 70px;
+                margin-bottom: 12px;
             }
 
             h1 {
@@ -150,26 +194,27 @@
             }
 
             input {
-                padding: 12px;
+                min-height: 46px;
                 margin: 12px 0;
+                padding: 12px;
                 font-size: 16px;
             }
 
             button {
-                padding: 13px;
+                min-height: 46px;
                 margin-top: 16px;
                 font-size: 16px;
             }
         }
 
-        /* Extra Small Cellphones */
+        /* EXTRA SMALL PHONES */
         @media screen and (max-width: 320px) {
             body {
                 padding: 10px;
             }
 
             .login-box {
-                padding: 20px 15px;
+                padding: 22px 15px;
             }
 
             .login-logo {
@@ -179,6 +224,26 @@
 
             h1 {
                 font-size: 22px;
+            }
+        }
+
+        /* SHORT SCREENS / LANDSCAPE PHONES */
+        @media screen and (max-height: 500px) {
+            body {
+                align-items: flex-start;
+            }
+
+            .login-box {
+                margin: 10px auto;
+            }
+        }
+
+        /* ACCESSIBILITY */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
             }
         }
     </style>
@@ -197,6 +262,7 @@
         <h1>TRC Shop</h1>
 
         <form onsubmit="login(event)">
+
             <input
                 type="text"
                 id="username"
@@ -218,6 +284,7 @@
             >
 
             <button type="submit">Login</button>
+
         </form>
 
     </main>
@@ -226,8 +293,11 @@
         function login(event) {
             event.preventDefault();
 
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
+            const username =
+                document.getElementById("username").value.trim();
+
+            const password =
+                document.getElementById("password").value;
 
             if (username === "ayrold" && password === "12345") {
                 window.location.href = "home page.html";
