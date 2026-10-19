@@ -1,93 +1,234 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TRC Shop Login</title>
+
     <style>
         * {
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
+
         body {
             margin: 0;
-            height: 100vh;
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding: 20px;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             background-image: url("background image.jpg");
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+            background-color: #333;
         }
+
+        /* Login Container */
         .login-box {
-            width: 300px;
-			min-height: 350;
+            width: 100%;
+            max-width: 380px;
+            min-height: 350px;
             padding: 30px;
-			margin: 50px auto;
-            box-sizing: border-box;
-			text-align: center;
-			background: white;
-			boder-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+
+            text-align: center;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
-        /* Style for your new logo */
+
+        /* TRC Logo */
         .login-logo {
+            display: block;
             width: 80px;
             height: 80px;
+            max-width: 100%;
             object-fit: contain;
-            margin-bottom: 15px;
-            
+            margin: 0 auto 15px;
         }
+
+        /* Heading */
         h1 {
-            margin-bottom: 25px;
-            margin-top: 0;
-            font-size: 24px;
+            margin: 0 0 25px;
+            font-size: 28px;
+            color: #222;
         }
+
+        /* Username and Password */
         input {
-		    display: block;
+            display: block;
             width: 100%;
-			box-sizing: border-box;
+            min-height: 46px;
             padding: 12px;
-			margin: 12px 0;
+            margin: 15px 0;
+
             border: 1px solid #ccc;
-			border-radius: 5px;
-            
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
         }
-        login-box input::placeholder {
+
+        input::placeholder {
             color: #666;
-			opacity: 1;
+            opacity: 1;
         }
+
+        input:focus {
+            border-color: #d71920;
+            box-shadow: 0 0 4px rgba(215, 25, 32, 0.3);
+        }
+
+        /* Login Button */
         button {
+            display: block;
             width: 100%;
+            min-height: 46px;
             padding: 12px;
-            margin-top: 10px;
-            background: #d71920;;
+            margin-top: 20px;
+
+            background: #d71920;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
+
             cursor: pointer;
             font-size: 16px;
             font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #a91218;
+        }
+
+        button:focus-visible {
+            outline: 3px solid #333;
+            outline-offset: 3px;
+        }
+
+        /* Tablets and Small Laptops */
+        @media screen and (max-width: 768px) {
+            .login-box {
+                max-width: 360px;
+                padding: 28px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+        }
+
+        /* Cellphones */
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 16px;
+                background-position: center;
+            }
+
+            .login-box {
+                width: 100%;
+                max-width: 360px;
+                min-height: auto;
+                padding: 25px 20px;
+                border-radius: 10px;
+            }
+
+            .login-logo {
+                width: 70px;
+                height: 70px;
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            input {
+                padding: 12px;
+                margin: 12px 0;
+                font-size: 16px;
+            }
+
+            button {
+                padding: 13px;
+                margin-top: 16px;
+                font-size: 16px;
+            }
+        }
+
+        /* Extra Small Cellphones */
+        @media screen and (max-width: 320px) {
+            body {
+                padding: 10px;
+            }
+
+            .login-box {
+                padding: 20px 15px;
+            }
+
+            .login-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
+
 <body>
-    
-	<div class="login-box">
-       
-        <img src="trc logo.jpg" alt="Logo" class="login-logo" onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNF2RTILV6K_MTX7MM8Hcp-v-tQTwUIn04LqCbBQO4BQ&s=10'">
-        
-        <h1>Trc Shop</h1>
+
+    <main class="login-box">
+
+        <img
+            src="trc logo.jpg"
+            alt="TRC Shop Logo"
+            class="login-logo"
+        >
+
+        <h1>TRC Shop</h1>
+
         <form onsubmit="login(event)">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+                aria-label="Username"
+                autocomplete="username"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                aria-label="Password"
+                autocomplete="current-password"
+                required
+            >
+
             <button type="submit">Login</button>
         </form>
-    </div>
+
+    </main>
+
     <script>
-	
         function login(event) {
             event.preventDefault();
-            let username = document.getElementById("username").value;
-            let password = document.getElementById("password").value;
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
             if (username === "ayrold" && password === "12345") {
                 window.location.href = "home page.html";
             } else {
@@ -95,5 +236,6 @@
             }
         }
     </script>
+
 </body>
 </html>
