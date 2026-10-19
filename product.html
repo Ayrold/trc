@@ -1,303 +1,404 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TRC Product Shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRC Product Shop</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-    }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
 
-    .title {
-      text-align: center;
-      padding: 20px;
-      background-color: #d71920;
-      color: white;
-    }
+        /* Page Header */
+        .title {
+            text-align: center;
+            padding: 22px 15px;
+            background-color: #d71920;
+            color: white;
+        }
 
-    .title h1 {
-      margin: 0;
-      font-size: 36px;
-    }
+        .title h1 {
+            margin: 0;
+            font-size: clamp(24px, 4vw, 36px);
+        }
 
-    /* Four products per row */
-    .cont {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 25px;
-      padding: 25px;
-      max-width: 1500px;
-      margin: auto;
-    }
+        /* Responsive Product Grid */
+        .cont {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+            padding: 25px;
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
 
-    /* Product card */
-    .card {
-      background-color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      padding: 15px;
-      border-radius: 5px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        /* Product Card */
+        .card {
+            min-width: 0;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-    .card img {
-      width: 100%;
-      max-width: 200px;
-      height: 160px;
-      object-fit: contain;
-      margin-bottom: 10px;
-    }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+        }
 
-    .card h2 {
-      font-size: 20px;
-      margin: 10px 0;
-    }
+        .card img {
+            display: block;
+            width: 100%;
+            height: 170px;
+            object-fit: contain;
+            margin: 0 auto 10px;
+        }
 
-    .price {
-      color: #d71920;
-      font-size: 22px;
-      font-weight: bold;
-      margin: 10px 0;
-    }
+        .card h2 {
+            font-size: 18px;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+            margin: 8px 0;
+        }
 
-    .description {
-      font-size: 14px;
-      color: #555;
-      line-height: 1.5;
-      flex-grow: 1;
-    }
+        .price {
+            color: #d71920;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 8px 0;
+        }
 
-    .card button {
-      border: none;
-      outline: none;
-      padding: 12px;
-      color: white;
-      background-color: #d71920;
-      text-align: center;
-      cursor: pointer;
-      width: 100%;
-      font-size: 16px;
-      border-radius: 5px;
-    }
+        .description {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
 
-    .card button:hover {
-      background-color: #a91218;
-    }
+        /* Add to Cart Button */
+        .card button {
+            border: none;
+            padding: 12px 8px;
+            color: white;
+            background-color: #d71920;
+            cursor: pointer;
+            width: 100%;
+            font-size: 15px;
+            border-radius: 5px;
+            margin-top: auto;
+            min-height: 44px;
+        }
 
-    /* Tablet: two products per row */
-    @media (max-width: 900px) {
-      .cont {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 15px;
-        padding: 15px;
-      }
-    }
+        .card button:hover {
+            background-color: #a91218;
+        }
 
-    /* Mobile: one product per row */
-    @media (max-width: 500px) {
-      .cont {
-        grid-template-columns: 1fr;
-        padding: 15px;
-      }
+        .card button:focus-visible,
+        .back-home:focus-visible {
+            outline: 3px solid #222;
+            outline-offset: 3px;
+        }
 
-      .title h1 {
-        font-size: 28px;
-      }
-    }
-  </style>
+        /* Back to Home */
+        .home-link {
+            text-align: center;
+            padding: 0 15px 30px;
+        }
+
+        .back-home {
+            display: inline-block;
+            padding: 12px 22px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-home:hover {
+            background-color: #555;
+        }
+
+        /* Tablets */
+        @media (max-width: 1000px) {
+            .cont {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 18px;
+                padding: 20px;
+            }
+
+            .card img {
+                height: 155px;
+            }
+        }
+
+        /* Cellphones */
+        @media (max-width: 650px) {
+            .cont {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+                padding: 12px;
+            }
+
+            .title {
+                padding: 18px 10px;
+            }
+
+            .card {
+                padding: 10px;
+                border-radius: 6px;
+            }
+
+            .card img {
+                height: 125px;
+            }
+
+            .card h2 {
+                font-size: 15px;
+            }
+
+            .price {
+                font-size: 18px;
+            }
+
+            .description {
+                font-size: 12px;
+                line-height: 1.4;
+            }
+
+            .card button {
+                font-size: 13px;
+                padding: 11px 5px;
+            }
+        }
+
+        /* Very Small Cellphones */
+        @media (max-width: 360px) {
+            .cont {
+                grid-template-columns: 1fr;
+                padding: 12px;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            .card img {
+                height: 180px;
+            }
+
+            .card h2 {
+                font-size: 18px;
+            }
+
+            .price {
+                font-size: 21px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .card button {
+                font-size: 15px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="title">
-    <h1>TRC PRODUCTS</h1>
-  </div>
+    <header class="title">
+        <h1>TRC PRODUCTS</h1>
+    </header>
 
-  <div class="cont">
+    <main class="cont">
 
-    <div class="card">
-      <img src="trc mags.jpg" alt="TRC Mags">
-      <h2>TRC MAGS</h2>
-      <p class="price">8,500</p>
-      <p class="description">These TRC mags are available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC MAGS', 8500)">Add to Cart</button>
+        <div class="card">
+            <img src="trc mags.jpg" alt="TRC Mags">
+            <h2>TRC MAGS</h2>
+            <p class="price">₱8,500</p>
+            <p class="description">These TRC mags are available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC MAGS', 8500)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="flatseat.jpg" alt="TRC Flatseat">
+            <h2>TRC FLATSEAT</h2>
+            <p class="price">₱1,500</p>
+            <p class="description">This TRC flatseat is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC FLATSEAT', 1500)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="swingarm rfi.jpg" alt="TRC Swingarm">
+            <h2>TRC SWINGARM</h2>
+            <p class="price">₱9,000</p>
+            <p class="description">This TRC swingarm is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC SWINGARM', 9000)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="Trc-crankcase.jpg" alt="TRC Crankcase">
+            <h2>TRC CRANKCASE</h2>
+            <p class="price">₱150,000</p>
+            <p class="description">This TRC crankcase is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC CRANKCASE', 150000)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc brake master.jpg" alt="TRC Brake Master">
+            <h2>TRC BRAKE MASTER</h2>
+            <p class="price">₱3,500</p>
+            <p class="description">TRC brake master component available in our shop.</p>
+            <button type="button" onclick="addToCart('TRC BRAKE MASTER', 3500)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="fuel tank cover trc.jpg" alt="TRC Fuel Tank Cover">
+            <h2>TRC FUEL TANK COVER</h2>
+            <p class="price">₱500</p>
+            <p class="description">This TRC fuel tank cover is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC FUEL TANK COVER', 500)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="side stand trc.jpg" alt="TRC Side Stand">
+            <h2>TRC SIDE STAND</h2>
+            <p class="price">₱700</p>
+            <p class="description">This TRC side stand is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC SIDE STAND', 700)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc cnc swingarm adv 160.jpg" alt="TRC CNC Swingarm ADV 160">
+            <h2>TRC CNC SWINGARM ADV 160</h2>
+            <p class="price">₱3,000</p>
+            <p class="description">TRC CNC swingarm for ADV 160 motorcycles.</p>
+            <button type="button" onclick="addToCart('TRC CNC SWINGARM ADV 160', 3000)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc front suspension.jpg" alt="TRC Front Suspension">
+            <h2>TRC FRONT SUSPENSION</h2>
+            <p class="price">₱3,000</p>
+            <p class="description">This TRC front suspension is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC FRONT SUSPENSION', 3000)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc halfshifter.jpg" alt="TRC Halfshifter">
+            <h2>TRC HALF SHIFTER</h2>
+            <p class="price">₱2,000</p>
+            <p class="description">This TRC halfshifter is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC HALF SHIFTER', 2000)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc handle grip.jpg" alt="TRC Handle Grip">
+            <h2>TRC HANDLE GRIP</h2>
+            <p class="price">₱300</p>
+            <p class="description">This TRC handle grip is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC HANDLE GRIP', 300)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc low rise handle bar.jpg" alt="TRC Low Rise Handle Bar">
+            <h2>TRC LOW RISE HANDLE BAR</h2>
+            <p class="price">₱450</p>
+            <p class="description">This TRC low rise handle bar is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC LOW RISE HANDLE BAR', 450)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc power pipe.jpg" alt="TRC Power Pipe">
+            <h2>TRC POWER PIPE</h2>
+            <p class="price">₱2,500</p>
+            <p class="description">This TRC power pipe is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC POWER PIPE', 2500)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc side mirror.png" alt="TRC Side Mirror">
+            <h2>TRC SIDE MIRROR</h2>
+            <p class="price">₱200</p>
+            <p class="description">This TRC side mirror is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC SIDE MIRROR', 200)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc t post rfi.jpg" alt="TRC T Post RFI">
+            <h2>TRC T POST RFI</h2>
+            <p class="price">₱3,500</p>
+            <p class="description">This TRC T post RFI is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC T POST RFI', 3500)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc water pump.jpg" alt="TRC Water Pump">
+            <h2>TRC WATER PUMP</h2>
+            <p class="price">₱800</p>
+            <p class="description">This TRC water pump is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC WATER PUMP', 800)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc oil bolt.png" alt="TRC Oil Bolt">
+            <h2>TRC OIL BOLT</h2>
+            <p class="price">₱250</p>
+            <p class="description">This TRC oil bolt is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC OIL BOLT', 250)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc oil filter cover.png" alt="TRC Oil Filter Cover">
+            <h2>TRC OIL FILTER COVER</h2>
+            <p class="price">₱850</p>
+            <p class="description">This TRC oil filter cover is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC OIL FILTER COVER', 850)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc rfi brake lever.png" alt="TRC RFI Brake Lever">
+            <h2>TRC RFI BRAKE LEVER</h2>
+            <p class="price">₱1,200</p>
+            <p class="description">This TRC RFI brake lever is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC RFI BRAKE LEVER', 1200)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="trc rfi fuild cover.png" alt="TRC Fluid Cover">
+            <h2>TRC FLUID COVER</h2>
+            <p class="price">₱350</p>
+            <p class="description">This TRC fluid cover is available in my shop.</p>
+            <button type="button" onclick="addToCart('TRC FLUID COVER', 350)">Add to Cart</button>
+        </div>
+
+    </main>
+
+    <div class="home-link">
+        <a href="home page.html" class="back-home">Back to Home</a>
     </div>
 
-    <div class="card">
-      <img src="flatseat.jpg" alt="TRC Flatseat">
-      <h2>TRC FLATSEAT</h2>
-      <p class="price">1,500</p>
-      <p class="description">This TRC flatseat is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC FLATSEAT', 1500)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="swingarm rfi.jpg" alt="TRC Swingarm">
-      <h2>TRC SWINGARM</h2>
-      <p class="price">9,000</p>
-      <p class="description">This TRC swingarm is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC SWINGARM', 9000)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="Trc-crankcase.jpg" alt="TRC Crankcase">
-      <h2>TRC CRANKCASE</h2>
-      <p class="price">150,000</p>
-      <p class="description">This TRC crankcase is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC CRANKCASE', 150000)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc brake master.jpg" alt="TRC Brake Master">
-      <h2>TRC BRAKE MASTER</h2>
-      <p class="price">3,500</p>
-      <p class="description">TRC brake master component available in our shop.</p>
-      <button type="button" onclick="addToCart('TRC BRAKE MASTER', 3500)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="fuel tank cover trc.jpg" alt="TRC Fuel Tank Cover">
-      <h2>TRC FUEL TANK COVER</h2>
-      <p class="price">500</p>
-      <p class="description">This TRC fuel tank cover is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC FUEL TANK COVER', 500)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="side stand trc.jpg" alt="TRC Side Stand">
-      <h2>TRC SIDE STAND</h2>
-      <p class="price">700</p>
-      <p class="description">This TRC side stand is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC SIDE STAND', 1200)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc cnc swingarm adv 160.jpg" alt="TRC CNC Swingarm ADV 160">
-      <h2>TRC CNC SWINGARM ADV 160</h2>
-      <p class="price">3,000</p>
-      <p class="description">TRC CNC swingarm for ADV 160 motorcycles.</p>
-      <button type="button" onclick="addToCart('TRC CNC SWINGARM ADV 160', 150000)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc front suspension.jpg" alt="TRC Front Suspension">
-      <h2>TRC FRONT SUSPENSION</h2>
-      <p class="price">3,000</p>
-      <p class="description">This TRC front suspension is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC FRONT SUSPENSION', 3000)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc halfshifter.jpg" alt="TRC Halfshifter">
-      <h2>TRC HALF SHIFTER</h2>
-      <p class="price">2,000</p>
-      <p class="description">This TRC halfshifter is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC HALF SHIFTER', 2000)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc handle grip.jpg" alt="TRC Handle Grip">
-      <h2>TRC HANDLE GRIP</h2>
-      <p class="price">300</p>
-      <p class="description">This TRC handle grip is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC HANDLE GRIP', 300)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc low rise handle bar.jpg" alt="TRC Low Rise Handle Bar">
-      <h2>TRC LOW RISE HANDLE BAR</h2>
-      <p class="price">450</p>
-      <p class="description">This TRC low rise handle bar is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC LOW RISE HANDLE BAR', 450)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc power pipe.jpg" alt="TRC Power Pipe">
-      <h2>TRC POWER PIPE</h2>
-      <p class="price">2,500</p>
-      <p class="description">This TRC power pipe is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC POWER PIPE', 2500)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc side mirror.png" alt="TRC Side Mirror">
-      <h2>TRC SIDE MIRROR</h2>
-      <p class="price">200</p>
-      <p class="description">This TRC side mirror is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC SIDE MIRROR', 200)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc t post rfi.jpg" alt="TRC T Post RFI">
-      <h2>TRC T POST RFI</h2>
-      <p class="price">3,500</p>
-      <p class="description">This TRC T post RFI is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC T POST RFI', 3500)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc water pump.jpg" alt="TRC Water Pump">
-      <h2>TRC WATER PUMP</h2>
-      <p class="price">800</p>
-      <p class="description">This TRC water pump is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC WATER PUMP', 800)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc oil bolt.png" alt="TRC Oil Bolt">
-      <h2>TRC OIL BOLT</h2>
-      <p class="price">250</p>
-      <p class="description">This TRC oil bolt is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC OIL BOLT', 250)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc oil filter cover.png" alt="TRC Oil Filter Cover">
-      <h2>TRC OIL FILTER COVER</h2>
-      <p class="price">850</p>
-      <p class="description">This TRC oil filter cover is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC OIL FILTER COVER', 850)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc rfi brake lever.png" alt="TRC RFI Brake Lever">
-      <h2>TRC RFI BRAKE LEVER</h2>
-      <p class="price">1,200</p>
-      <p class="description">This TRC RFI brake lever is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC RFI BRAKE LEVER', 1500)">Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="trc rfi fuild cover.png" alt="TRC Fluid Cover">
-      <h2>TRC FLUID COVER</h2>
-      <p class="price">350</p>
-      <p class="description">This TRC fluid cover is available in my shop.</p>
-      <button type="button" onclick="addToCart('TRC FLUID COVER', 350)">Add to Cart</button>
-	  <a href="home page.html">Back to Home</a>
-    </div>
-
-  </div>
-
-  <script>
-    function addToCart(productName, price) {
-      alert(
-        productName + " added to cart!\nPrice: ?" +
-        price.toLocaleString("en-PH")
-      );
-    }
-  </script>
-
-</body>
-</html>
-
+    <script>
+        function addToCart(productName, price) {
+            alert(
+                productName + " added to cart!\nPrice: ₱" +
+                price.toLocaleString("en-PH")
+            );
+        }
+    </script>
