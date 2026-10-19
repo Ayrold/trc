@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +51,6 @@
             border-radius: 8px;
             display: flex;
             flex-direction: column;
-            align-items: stretch;
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
@@ -133,7 +131,7 @@
             background-color: #555;
         }
 
-        /* Tablets */
+        /* Tablets and smaller laptops */
         @media (max-width: 1000px) {
             .cont {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -186,7 +184,7 @@
             }
         }
 
-        /* Very Small Cellphones */
+        /* Very small cellphones */
         @media (max-width: 360px) {
             .cont {
                 grid-template-columns: 1fr;
@@ -215,6 +213,20 @@
 
             .card button {
                 font-size: 15px;
+            }
+        }
+
+        /* Landscape phones */
+        @media (max-width: 900px) and (orientation: landscape) {
+            .cont {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        /* Reduce animation for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .card {
+                transition: none;
             }
         }
     </style>
@@ -402,3 +414,6 @@
             );
         }
     </script>
+
+</body>
+</html>
