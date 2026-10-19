@@ -1,14 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,
+                   viewport-fit=cover">
 
     <title>TRC Shop Login</title>
 
     <style>
-        
         * {
             margin: 0;
             padding: 0;
@@ -18,14 +18,20 @@
 
         html {
             width: 100%;
+            min-height: 100%;
+            -webkit-text-size-adjust: 100%;
         }
 
-        
         body {
+            width: 100%;
             min-height: 100vh;
             min-height: 100dvh;
-            width: 100%;
-            padding: 10px;
+
+            padding:
+                max(12px, env(safe-area-inset-top))
+                max(12px, env(safe-area-inset-right))
+                max(12px, env(safe-area-inset-bottom))
+                max(12px, env(safe-area-inset-left));
 
             display: flex;
             justify-content: center;
@@ -33,61 +39,59 @@
 
             background:
                 linear-gradient(
-                    rgba(0, 0, 0, 0.3),
-                    rgba(0, 0, 0, 0.3)
+                    rgba(0, 0, 0, 0.35),
+                    rgba(0, 0, 0, 0.35)
                 ),
-                url("background image.jpg") center / cover no-repeat;
+                url("background image.jpg")
+                center center / cover no-repeat;
 
             background-color: #333;
             overflow-x: hidden;
         }
 
-        
         .login-box {
             width: 100%;
-            max-width: 380px;
-            padding: 30px;
+            max-width: 360px;
+            padding: 28px 22px;
 
             text-align: center;
-            background: rgba(255, 255, 255, 0.96);
-            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 16px;
 
             box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
         }
 
-        
         .login-logo {
             display: block;
-            width: 80px;
-            height: 80px;
+            width: 76px;
+            height: 76px;
             max-width: 100%;
 
             object-fit: contain;
             margin: 0 auto 12px;
         }
 
-        
         h1 {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             font-size: 28px;
+            line-height: 1.2;
             color: #222;
         }
 
-        
         form {
             width: 100%;
         }
 
-        
         input {
             display: block;
             width: 100%;
-            min-height: 48px;
-            padding: 12px;
+            height: 48px;
+            padding: 0 13px;
             margin: 12px 0;
 
             border: 1px solid #ccc;
-            border-radius: 6px;
+            border-radius: 8px;
 
             background: #fff;
             color: #222;
@@ -105,19 +109,18 @@
             border-color: #d71920;
         }
 
-        
         button {
             display: block;
             width: 100%;
             min-height: 48px;
             padding: 12px;
-            margin-top: 15px;
+            margin-top: 16px;
 
             background: #d71920;
             color: white;
 
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
 
             font-size: 16px;
             font-weight: bold;
@@ -140,130 +143,99 @@
             outline-offset: 3px;
         }
 
-        
-        @media screen and (max-width: 768px) {
-            body {
-                padding: 12px;
-            }
-
-            .login-box {
-                max-width: 420px;
-                padding: 25px;
-            }
-
-            h1 {
-                font-size: 26px;
-            }
-        }
-
-        
+        /* Small Android phones */
         @media screen and (max-width: 480px) {
-            body {
-                padding: 6px;
-            }
-
             .login-box {
                 width: 100%;
-                max-width: none;
-                padding: 22px 16px;
-                border-radius: 10px;
+                max-width: 360px;
+                padding: 25px 18px;
+                border-radius: 14px;
             }
 
             .login-logo {
-                width: 65px;
-                height: 65px;
+                width: 68px;
+                height: 68px;
                 margin-bottom: 10px;
             }
 
             h1 {
-                font-size: 24px;
-                margin-bottom: 15px;
+                font-size: 25px;
+                margin-bottom: 18px;
             }
 
-            input {
-                width: 100%;
-                min-height: 46px;
-                margin: 10px 0;
-                padding: 11px;
-                font-size: 16px;
-            }
-
+            input,
             button {
-                width: 100%;
-                min-height: 46px;
-                margin-top: 12px;
-                padding: 11px;
                 font-size: 16px;
             }
         }
 
-        
-        @media screen and (max-width: 320px) {
+        /* Extra-small screens */
+        @media screen and (max-width: 340px) {
             body {
-                padding: 4px;
+                padding: 8px;
             }
 
             .login-box {
-                padding: 18px 12px;
-                border-radius: 8px;
+                padding: 20px 14px;
             }
 
             .login-logo {
-                width: 55px;
-                height: 55px;
+                width: 58px;
+                height: 58px;
+            }
+
+            h1 {
+                font-size: 23px;
+                margin-bottom: 14px;
+            }
+
+            input {
+                height: 45px;
+                margin: 10px 0;
+                padding: 0 10px;
+            }
+
+            button {
+                min-height: 45px;
+                margin-top: 12px;
+            }
+        }
+
+        /* Landscape mode / short screens */
+        @media screen and (max-height: 500px) {
+            body {
+                align-items: flex-start;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .login-box {
+                margin: auto;
+                padding: 14px 20px;
+            }
+
+            .login-logo {
+                width: 42px;
+                height: 42px;
+                margin-bottom: 5px;
             }
 
             h1 {
                 font-size: 22px;
-                margin-bottom: 12px;
-            }
-
-            input {
-                min-height: 44px;
-                margin: 9px 0;
-                padding: 10px;
-            }
-
-            button {
-                min-height: 44px;
-                margin-top: 10px;
-            }
-        }
-
-        
-        @media screen and (max-height: 500px) {
-            body {
-                align-items: flex-start;
-                padding-top: 6px;
-                padding-bottom: 6px;
-            }
-
-            .login-box {
-                margin: 4px auto;
-                padding-top: 16px;
-                padding-bottom: 16px;
-            }
-
-            .login-logo {
-                width: 50px;
-                height: 50px;
-                margin-bottom: 6px;
-            }
-
-            h1 {
                 margin-bottom: 10px;
             }
 
             input {
+                height: 42px;
                 margin: 8px 0;
             }
 
             button {
+                min-height: 42px;
                 margin-top: 10px;
             }
         }
 
-        
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
@@ -278,17 +250,14 @@
 
     <main class="login-box">
 
-        
         <img
             src="trc logo.jpg"
             alt="TRC Shop Logo"
             class="login-logo"
         >
 
-        
         <h1>TRC Shop</h1>
 
-        
         <form onsubmit="login(event)">
 
             <input
@@ -317,7 +286,6 @@
 
     </main>
 
-    
     <script>
         function login(event) {
             event.preventDefault();
@@ -341,6 +309,3 @@
 
 </body>
 </html>
-
-
-
