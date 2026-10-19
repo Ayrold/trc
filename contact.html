@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +30,7 @@
             font-family: Arial, sans-serif;
         }
 
+        /* Contact Box */
         .contact-box {
             width: 100%;
             max-width: 450px;
@@ -42,7 +42,7 @@
         }
 
         h1 {
-            font-size: 30px;
+            font-size: clamp(24px, 4vw, 30px);
             margin-top: 0;
             color: #333;
         }
@@ -54,6 +54,7 @@
             margin-bottom: 25px;
         }
 
+        /* Form Labels */
         label {
             display: block;
             text-align: left;
@@ -61,6 +62,7 @@
             font-weight: bold;
         }
 
+        /* Form Fields */
         input,
         textarea {
             display: block;
@@ -76,6 +78,7 @@
         textarea {
             resize: vertical;
             min-height: 120px;
+            max-width: 100%;
         }
 
         input:focus,
@@ -85,8 +88,10 @@
             box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
         }
 
+        /* Send Message Button */
         button {
             width: 100%;
+            min-height: 48px;
             padding: 14px;
             background-color: #007bff;
             color: white;
@@ -101,6 +106,13 @@
             background-color: #0056b3;
         }
 
+        button:focus-visible,
+        .back-home:focus-visible {
+            outline: 3px solid #222;
+            outline-offset: 3px;
+        }
+
+        /* Back to Home */
         .back-home {
             display: inline-block;
             margin-top: 22px;
@@ -113,9 +125,21 @@
             text-decoration: underline;
         }
 
-        /* Cellphone screen */
+        /* Tablets and smaller laptops */
+        @media screen and (max-width: 900px) {
+            body {
+                padding: 20px;
+            }
+
+            .contact-box {
+                max-width: 500px;
+            }
+        }
+
+        /* Cellphones */
         @media screen and (max-width: 600px) {
             body {
+                min-height: 100vh;
                 padding: 15px;
                 align-items: center;
             }
@@ -132,6 +156,7 @@
 
             p {
                 font-size: 14px;
+                line-height: 1.6;
             }
 
             input,
@@ -158,6 +183,35 @@
             h1 {
                 font-size: 22px;
             }
+
+            p {
+                font-size: 13px;
+            }
+
+            input,
+            textarea {
+                padding: 10px;
+            }
+        }
+
+        /* Landscape phones */
+        @media screen and (max-height: 500px) and (orientation: landscape) {
+            body {
+                align-items: flex-start;
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+
+            .contact-box {
+                margin: auto;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                scroll-behavior: auto;
+            }
         }
     </style>
 </head>
@@ -180,6 +234,7 @@
                 id="name"
                 name="name"
                 placeholder="Enter your name"
+                autocomplete="name"
                 required
             >
 
@@ -189,6 +244,7 @@
                 id="email"
                 name="email"
                 placeholder="Enter your email"
+                autocomplete="email"
                 required
             >
 
@@ -212,4 +268,3 @@
 
 </body>
 </html>
-
