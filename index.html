@@ -8,7 +8,7 @@
     <title>TRC Shop Login</title>
 
     <style>
-        /* RESET */
+        
         * {
             margin: 0;
             padding: 0;
@@ -20,7 +20,7 @@
             width: 100%;
         }
 
-        /* BODY / BACKGROUND */
+        
         body {
             min-height: 100vh;
             min-height: 100dvh;
@@ -42,7 +42,7 @@
             overflow-x: hidden;
         }
 
-        /* LOGIN BOX */
+        
         .login-box {
             width: 100%;
             max-width: 380px;
@@ -55,7 +55,7 @@
             box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
         }
 
-        /* LOGO */
+        
         .login-logo {
             display: block;
             width: 80px;
@@ -66,19 +66,19 @@
             margin: 0 auto 12px;
         }
 
-        /* TITLE */
+        
         h1 {
             margin-bottom: 20px;
             font-size: 28px;
             color: #222;
         }
 
-        /* FORM */
+        
         form {
             width: 100%;
         }
 
-        /* INPUT FIELDS */
+        
         input {
             display: block;
             width: 100%;
@@ -105,7 +105,7 @@
             border-color: #d71920;
         }
 
-        /* LOGIN BUTTON */
+        
         button {
             display: block;
             width: 100%;
@@ -140,7 +140,7 @@
             outline-offset: 3px;
         }
 
-        /* TABLETS */
+        
         @media screen and (max-width: 768px) {
             body {
                 padding: 12px;
@@ -156,7 +156,7 @@
             }
         }
 
-        /* CELLPHONES */
+        
         @media screen and (max-width: 480px) {
             body {
                 padding: 6px;
@@ -197,7 +197,7 @@
             }
         }
 
-        /* EXTRA SMALL CELLPHONES */
+        
         @media screen and (max-width: 320px) {
             body {
                 padding: 4px;
@@ -230,7 +230,7 @@
             }
         }
 
-        /* LANDSCAPE PHONES / SHORT SCREENS */
+        
         @media screen and (max-height: 500px) {
             body {
                 align-items: flex-start;
@@ -263,7 +263,7 @@
             }
         }
 
-        /* REDUCED MOTION */
+        
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
@@ -278,17 +278,17 @@
 
     <main class="login-box">
 
-        <!-- TRC LOGO -->
+        
         <img
             src="trc logo.jpg"
             alt="TRC Shop Logo"
             class="login-logo"
         >
 
-        <!-- TITLE -->
+        
         <h1>TRC Shop</h1>
 
-        <!-- LOGIN FORM -->
+        
         <form onsubmit="login(event)">
 
             <input
@@ -317,7 +317,7 @@
 
     </main>
 
-    <!-- LOGIN SCRIPT -->
+    
     <script>
         function login(event) {
             event.preventDefault();
