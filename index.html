@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +15,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        /* BODY / BACKGROUND */
+        /* PAGE BACKGROUND */
         body {
             min-height: 100vh;
             min-height: 100dvh;
@@ -28,46 +29,33 @@
             justify-content: center;
             align-items: center;
 
-            background-image: url("background image.jpg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.3),
+                                rgba(0, 0, 0, 0.3)),
+                url("background image.jpg") center / cover no-repeat;
+
             background-color: #333;
-
             overflow-x: hidden;
-        }
-
-        /* OPTIONAL DARK OVERLAY FOR BETTER CONTRAST */
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.25);
-            pointer-events: none;
         }
 
         /* LOGIN CARD */
         .login-box {
-            position: relative;
-            z-index: 1;
-
             width: 100%;
             max-width: 380px;
             padding: 32px;
 
             text-align: center;
             background: rgba(255, 255, 255, 0.96);
-            border-radius: 12px;
+            border-radius: 14px;
 
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
         }
 
         /* LOGO */
         .login-logo {
             display: block;
-
-            width: 80px;
-            height: 80px;
+            width: 85px;
+            height: 85px;
             max-width: 100%;
 
             object-fit: contain;
@@ -95,15 +83,11 @@
             margin: 15px 0;
 
             border: 1px solid #ccc;
-            border-radius: 6px;
+            border-radius: 7px;
 
             background: #fff;
             color: #222;
             font-size: 16px;
-
-            outline: none;
-            transition: border-color 0.2s,
-                        box-shadow 0.2s;
         }
 
         input::placeholder {
@@ -112,8 +96,9 @@
         }
 
         input:focus {
+            outline: 2px solid #d71920;
+            outline-offset: 1px;
             border-color: #d71920;
-            box-shadow: 0 0 5px rgba(215, 25, 32, 0.3);
         }
 
         /* LOGIN BUTTON */
@@ -125,26 +110,25 @@
             margin-top: 20px;
 
             background: #d71920;
-            color: white;
+            color: #fff;
 
             border: none;
-            border-radius: 6px;
+            border-radius: 7px;
 
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
 
-            transition: background 0.2s,
-                        transform 0.2s;
+            transition: background 0.2s ease,
+                        transform 0.2s ease;
         }
 
         button:hover {
             background: #a91218;
-            transform: translateY(-2px);
         }
 
         button:active {
-            transform: translateY(0);
+            transform: scale(0.98);
         }
 
         button:focus-visible {
@@ -168,18 +152,17 @@
             }
         }
 
-        /* MOBILE PHONES */
+        /* CELLPHONES */
         @media screen and (max-width: 480px) {
             body {
                 padding: 16px;
-                background-position: center;
             }
 
             .login-box {
                 width: 100%;
                 max-width: 360px;
                 padding: 26px 20px;
-                border-radius: 10px;
+                border-radius: 12px;
             }
 
             .login-logo {
@@ -207,7 +190,7 @@
             }
         }
 
-        /* EXTRA SMALL PHONES */
+        /* EXTRA SMALL CELLPHONES */
         @media screen and (max-width: 320px) {
             body {
                 padding: 10px;
@@ -227,7 +210,7 @@
             }
         }
 
-        /* SHORT SCREENS / LANDSCAPE PHONES */
+        /* LANDSCAPE PHONES AND SHORT SCREENS */
         @media screen and (max-height: 500px) {
             body {
                 align-items: flex-start;
@@ -238,7 +221,7 @@
             }
         }
 
-        /* ACCESSIBILITY */
+        /* REDUCED MOTION ACCESSIBILITY */
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
