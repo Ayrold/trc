@@ -1,15 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0,
-                   viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>About TRC Racing Shop</title>
 
     <style>
-        /* RESET */
         * {
             margin: 0;
             padding: 0;
@@ -19,20 +17,42 @@
 
         html {
             scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            width: 100%;
             min-height: 100vh;
-            min-height: 100dvh;
             background: #f4f4f4;
             color: #333;
             overflow-x: hidden;
         }
 
-        img {
-            max-width: 100%;
+        /* TOP NAVIGATION */
+        .site-nav {
+            width: 100%;
+            background: #171717;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 20px;
+            flex-wrap: wrap;
+            border-bottom: 3px solid #d71920;
+        }
+
+        .site-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 10px 16px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .site-nav a:hover,
+        .site-nav a.active {
+            background: #d71920;
+            color: white;
         }
 
         /* ABOUT HEADER */
@@ -48,16 +68,13 @@
             font-size: clamp(25px, 4vw, 36px);
             margin-bottom: 18px;
             line-height: 1.3;
-            overflow-wrap: break-word;
         }
 
         .about-section p {
-            width: 100%;
             max-width: 850px;
             margin: 12px auto;
             font-size: 16px;
             line-height: 1.8;
-            overflow-wrap: break-word;
         }
 
         /* PAGE TITLE */
@@ -72,34 +89,28 @@
         .row {
             display: flex;
             justify-content: center;
-            align-items: flex-start;
             width: 100%;
             padding: 0 20px 40px;
         }
 
-        /* COLUMN */
         .column {
             width: 100%;
             max-width: 700px;
-            min-width: 0;
         }
 
-        /* CARD */
+        /* SHOP CARD */
         .card {
             width: 100%;
             background: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease,
-                        box-shadow 0.3s ease;
+            transition: 0.3s;
         }
 
-        @media (hover: hover) {
-            .card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
-            }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
         }
 
         /* SHOP LOGO */
@@ -108,8 +119,7 @@
             width: 100%;
             height: clamp(200px, 32vw, 320px);
             object-fit: contain;
-            object-position: center;
-            background: #fff;
+            background: white;
             padding: 15px;
         }
 
@@ -123,7 +133,6 @@
             margin-bottom: 16px;
             color: #222;
             line-height: 1.4;
-            overflow-wrap: break-word;
         }
 
         .container p {
@@ -131,7 +140,6 @@
             line-height: 1.85;
             color: #555;
             margin-bottom: 20px;
-            overflow-wrap: anywhere;
         }
 
         /* CONTACT BUTTON */
@@ -142,63 +150,29 @@
             width: 100%;
             min-height: 48px;
             padding: 13px 18px;
-
             border: none;
             border-radius: 7px;
-
             background: #d71920;
             color: white;
-
             text-align: center;
             font-size: 16px;
             font-weight: bold;
             text-decoration: none;
-
-            cursor: pointer;
-            transition: background 0.2s ease;
+            transition: 0.3s;
         }
 
         .button:hover {
             background: #a91218;
         }
 
-        /* BACK TO HOME */
-        .back-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .back-link {
-            display: inline-block;
-            max-width: 100%;
-            padding: 12px 16px;
-            color: #163b7a;
-            font-size: 15px;
-            font-weight: bold;
-            text-decoration: none;
-            overflow-wrap: break-word;
-            border-radius: 5px;
-            transition: background 0.2s ease;
-        }
-
-        .back-link:hover {
-            background: #f0f0f0;
-            text-decoration: underline;
-        }
-
-        .button:focus-visible,
-        .back-link:focus-visible {
-            outline: 3px solid #163b7a;
-            outline-offset: 3px;
-        }
-
-        /* TABLETS AND SMALL LAPTOPS */
+        /* TABLET */
         @media screen and (max-width: 768px) {
             .about-section {
                 padding: 42px 22px;
             }
 
-            .about-section p {
+            .about-section p,
+            .container p {
                 font-size: 15px;
             }
 
@@ -209,27 +183,30 @@
             .container {
                 padding: 24px;
             }
-
-            .container p {
-                font-size: 15px;
-            }
         }
 
-        /* MOBILE PHONES */
+        /* MOBILE PHONE */
         @media screen and (max-width: 480px) {
+            .site-nav {
+                gap: 4px;
+                padding: 10px 6px;
+            }
+
+            .site-nav a {
+                font-size: 13px;
+                padding: 9px 10px;
+            }
+
             .about-section {
                 padding: 34px 17px;
             }
 
             .about-section h1 {
                 font-size: 26px;
-                margin-bottom: 15px;
             }
 
             .about-section p {
                 font-size: 14px;
-                line-height: 1.8;
-                margin: 10px auto;
             }
 
             .page-title {
@@ -256,91 +233,11 @@
 
             .container h2 {
                 font-size: 22px;
-                margin-bottom: 13px;
             }
 
             .container p {
                 font-size: 14px;
                 line-height: 1.8;
-                margin-bottom: 17px;
-            }
-
-            .button {
-                min-height: 47px;
-                font-size: 16px;
-            }
-
-            .back-container {
-                margin-top: 14px;
-            }
-
-            .back-link {
-                padding: 11px 12px;
-            }
-        }
-
-        /* EXTRA-SMALL PHONES */
-        @media screen and (max-width: 320px) {
-            .about-section {
-                padding: 27px 12px;
-            }
-
-            .about-section h1 {
-                font-size: 23px;
-            }
-
-            .about-section p {
-                font-size: 13px;
-            }
-
-            .page-title {
-                font-size: 22px;
-                margin: 23px 8px 16px;
-            }
-
-            .row {
-                padding: 0 8px 20px;
-            }
-
-            .trc-logo {
-                height: 175px;
-                padding: 9px;
-            }
-
-            .container {
-                padding: 17px 13px;
-            }
-
-            .container h2 {
-                font-size: 20px;
-            }
-
-            .container p {
-                font-size: 13px;
-            }
-
-            .button {
-                padding: 12px 10px;
-            }
-        }
-
-        /* LANDSCAPE PHONES */
-        @media screen and (max-height: 500px)
-            and (orientation: landscape) {
-            .about-section {
-                padding: 24px 18px;
-            }
-
-            .page-title {
-                margin: 20px 10px;
-            }
-
-            .trc-logo {
-                height: 180px;
-            }
-
-            .container {
-                padding: 20px;
             }
         }
 
@@ -361,6 +258,15 @@
 
 <body>
 
+    <!-- NAVIGATION BAR -->
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="home page.html">Home</a>
+        <a href="about.html" class="active"
+           aria-current="page">About</a>
+        <a href="product.html">Product</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
     <!-- ABOUT HEADER -->
     <header class="about-section">
         <h1>About TRC Racing Shop</h1>
@@ -371,9 +277,9 @@
         </p>
 
         <p>
-            We provide affordable, original, and race-tested products
-            for everyday rides and champions. Located in
-            Pob. Aurora, Zamboanga del Sur.
+            We provide affordable, original, and race-tested
+            products for everyday rides and champions.
+            Located in Pob. Aurora, Zamboanga del Sur.
         </p>
     </header>
 
@@ -383,51 +289,45 @@
     <!-- SHOP CARD -->
     <main class="row">
         <div class="column">
-
             <article class="card">
 
                 <img
                     src="trc logo.jpg"
-                    alt="TRC Racing Shop logo"
+                    alt="TRC Racing Shop Logo"
                     class="trc-logo"
                 >
 
                 <div class="container">
-
                     <h2>TRC Racing Shop</h2>
 
                     <p>
                         Welcome to TRC Racing Shop, your trusted
-                        destination for motorcycle parts, accessories,
-                        and racing-inspired products. We are dedicated
-                        to providing quality products that help riders
-                        improve the style, performance, and overall
-                        appearance of their motorcycles.
+                        destination for motorcycle parts,
+                        accessories, and racing-inspired products.
+                        We are dedicated to providing quality
+                        products that help riders improve the
+                        style, performance, and overall appearance
+                        of their motorcycles.
                     </p>
 
                     <p>
-                        Our products include racing mags, swingarms,
-                        flat seats, chains and sprockets, motorcycle
-                        accessories, and other essential parts. We are
-                        committed to providing affordable and reliable
-                        products for motorcycle enthusiasts.
+                        Our products include racing mags,
+                        swingarms, flat seats, chains and sprockets,
+                        motorcycle accessories, and other
+                        essential parts. We are committed to
+                        providing affordable and reliable products
+                        for motorcycle enthusiasts.
                     </p>
 
                     <a href="contact.html" class="button">
                         Contact Us
                     </a>
-
-                    <div class="back-container">
-                        <a href="home page.html" class="back-link">
-                            &larr; Back to Home
-                        </a>
-                    </div>
-
                 </div>
-            </article>
 
+            </article>
         </div>
     </main>
 
 </body>
 </html>
+
