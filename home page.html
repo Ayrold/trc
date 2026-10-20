@@ -7,13 +7,10 @@
                    viewport-fit=cover">
 
     <title>Airold Cabañog's Homepage</title>
-
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* RESET */
         * {
             margin: 0;
             padding: 0;
@@ -57,8 +54,6 @@
             isolation: isolate;
             overflow-x: clip;
         }
-
-        /* DECORATIVE CIRCLES */
         body::before,
         body::after {
             content: "";
@@ -82,16 +77,12 @@
             right: -100px;
             top: -100px;
         }
-
-        /* MAIN CONTENT */
         .container {
             width: 100%;
             max-width: 900px;
             margin: auto;
             text-align: center;
         }
-
-        /* NAVIGATION */
         .navigation {
             display: flex;
             justify-content: center;
@@ -135,8 +126,6 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
         }
-
-        /* WELCOME CARD */
         .welcome-card {
             width: 100%;
             padding: clamp(25px, 5vw, 45px);
@@ -168,8 +157,6 @@
             line-height: 1.9;
             overflow-wrap: anywhere;
         }
-
-        /* LOGOUT BUTTON */
         .logout-btn {
             display: inline-flex;
             justify-content: center;
@@ -204,8 +191,6 @@
             outline: 3px solid #163b7a;
             outline-offset: 3px;
         }
-
-        /* TABLETS */
         @media screen and (max-width: 768px) {
             .container {
                 max-width: 650px;
@@ -224,8 +209,6 @@
                 border-radius: 13px;
             }
         }
-
-        /* MOBILE PHONES */
         @media screen and (max-width: 480px) {
             body {
                 padding:
@@ -277,8 +260,6 @@
                 min-height: 48px;
             }
         }
-
-        /* EXTRA-SMALL PHONES */
         @media screen and (max-width: 320px) {
             body {
                 padding: 12px 8px;
@@ -310,8 +291,6 @@
                 font-size: 14px;
             }
         }
-
-        /* LANDSCAPE PHONES AND SHORT SCREENS */
         @media screen and (max-height: 500px)
             and (orientation: landscape) {
             body {
@@ -338,8 +317,6 @@
                 margin-top: 15px;
             }
         }
-
-        /* REDUCED MOTION */
         @media (prefers-reduced-motion: reduce) {
             html {
                 scroll-behavior: auto;
@@ -357,8 +334,6 @@
 <body>
 
     <main class="container">
-
-        <!-- NAVIGATION -->
         <nav class="navigation" aria-label="Main navigation">
 
             <a href="home page.html"
@@ -388,8 +363,6 @@
             </a>
 
         </nav>
-
-        <!-- WELCOME SECTION -->
         <section class="welcome-card">
 
             <h1>Welcome to my Homepage!</h1>
