@@ -17,9 +17,7 @@
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
         }
-
-        /* TOP NAVIGATION */
-        .site-nav {
+       .site-nav {
             width: 100%;
             background: #171717;
             display: flex;
@@ -51,8 +49,6 @@
             outline: 3px solid white;
             outline-offset: 3px;
         }
-
-        /* PAGE HEADER */
         .title {
             text-align: center;
             padding: 22px 15px;
@@ -64,8 +60,6 @@
             margin: 0;
             font-size: clamp(24px, 4vw, 36px);
         }
-
-        /* PRODUCT GRID */
         .cont {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -75,8 +69,6 @@
             max-width: 1500px;
             margin: 0 auto;
         }
-
-        /* PRODUCT CARD */
         .card {
             min-width: 0;
             background-color: white;
@@ -122,8 +114,6 @@
             line-height: 1.5;
             flex-grow: 1;
         }
-
-        /* ADD TO CART BUTTON */
         .card button {
             border: none;
             padding: 12px 8px;
@@ -145,8 +135,6 @@
             outline: 3px solid #222;
             outline-offset: 3px;
         }
-
-        /* TABLETS AND SMALLER LAPTOPS */
         @media (max-width: 1000px) {
             .cont {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -158,8 +146,6 @@
                 height: 155px;
             }
         }
-
-        /* CELLPHONES */
         @media (max-width: 650px) {
             .site-nav {
                 gap: 4px;
@@ -170,8 +156,7 @@
                 font-size: 13px;
                 padding: 9px 10px;
             }
-
-            .cont {
+             .cont {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 12px;
                 padding: 12px;
@@ -208,8 +193,6 @@
                 padding: 11px 5px;
             }
         }
-
-        /* VERY SMALL CELLPHONES */
         @media (max-width: 360px) {
             .cont {
                 grid-template-columns: 1fr;
@@ -240,15 +223,11 @@
                 font-size: 15px;
             }
         }
-
-        /* LANDSCAPE PHONES */
         @media (max-width: 900px) and (orientation: landscape) {
             .cont {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
             }
         }
-
-        /* ACCESSIBILITY */
         @media (prefers-reduced-motion: reduce) {
             .card {
                 transition: none;
@@ -258,8 +237,6 @@
 </head>
 
 <body>
-
-    <!-- TOP NAVIGATION -->
     <nav class="site-nav" aria-label="Main navigation">
         <a href="home page.html">Home</a>
         <a href="about.html">About</a>
@@ -268,13 +245,9 @@
            aria-current="page">Product</a>
         <a href="contact.html">Contact</a>
     </nav>
-
-    <!-- PAGE TITLE -->
     <header class="title">
         <h1>TRC PRODUCTS</h1>
     </header>
-
-    <!-- PRODUCT LIST -->
     <main class="cont">
 
         <div class="card">
